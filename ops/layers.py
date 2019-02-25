@@ -4,7 +4,7 @@
 
 import tensorflow as tf
 
-from common import check_data_format
+from .common import check_data_format
 
 
 def _linear_2d(inputs, output_size, bias, concat=True):

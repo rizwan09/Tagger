@@ -127,7 +127,7 @@ def encoder(encoder_input, mask, params, dtype=None, scope=None):
         seq_len = tf.to_int32(tf.reduce_sum(mask, -1))
         attn_bias = ops.attention.attention_bias(mask, "masking")
 
-        for layer in xrange(params.num_hidden_layers):
+        for layer in range(params.num_hidden_layers):
             with tf.variable_scope("layer_%d" % layer):
                 with tf.variable_scope("computation"):
                     if params.layer_type == "ffn_layer":

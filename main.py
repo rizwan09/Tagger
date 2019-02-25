@@ -4,7 +4,7 @@
 
 import os
 import ops
-import sys
+import sys, pdb
 import copy
 import argparse
 import numpy as np
@@ -212,14 +212,15 @@ def decoding_params():
 
 
 def merge_params(p1, p2):
+    # pdb.set_trace()
     params = tf.contrib.training.HParams()
     v1 = p1.values()
     v2 = p2.values()
 
-    for (k, v) in v1.iteritems():
+    for (k, v) in v1.items():
         params.add_hparam(k, v)
 
-    for (k, v) in v2.iteritems():
+    for (k, v) in v2.items():
         params.add_hparam(k, v)
 
     return params
@@ -600,10 +601,10 @@ def predict(args):
     ivocab = {"inputs": {}, "targets": {}}
     labels = []
 
-    for k, idx in vocabulary["inputs"].iteritems():
+    for k, idx in vocabulary["inputs"].items():
         ivocab["inputs"][idx] = k
 
-    for k, idx in vocabulary["targets"].iteritems():
+    for k, idx in vocabulary["targets"].items():
         ivocab["targets"][idx] = k
 
     for idx in range(len(ivocab["targets"])):
@@ -753,7 +754,7 @@ def ensemble(args):
     labels = []
     ivocab = {}
 
-    for k, idx in vocabularies[0]["targets"].iteritems():
+    for k, idx in vocabularies[0]["targets"].items():
         ivocab[idx] = k
 
     for idx in range(len(ivocab)):

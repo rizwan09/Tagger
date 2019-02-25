@@ -4,7 +4,7 @@
 
 import tensorflow as tf
 
-from deepatt import deepatt_default_params, deepatt_model
+from .deepatt import deepatt_default_params, deepatt_model
 
 
 def get_model_params(name):

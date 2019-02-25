@@ -5,8 +5,8 @@
 import math
 import tensorflow as tf
 
-from layers import linear
-from common import check_data_format
+from .layers import linear
+from .common import check_data_format
 
 
 def _split_heads(x, num_heads, data_format="NHWC"):
